@@ -24,12 +24,12 @@ Things you may want to cover:
 * ...
 ## messagesテーブル
 
-|Column|Type|
-|------|----|
+|Column|Type|Option|
+|------|----|------|
 |body|text|
 |image|string|
-|group_id|integer|
-|user_id|integer|
+|group_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 -belongs_to :user
@@ -39,23 +39,25 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_name|string|nul: false|
+|name|string|nul: false|
 |email|string|nul: false|
 |password|string|nul: false|
 
 ### Association
 - has_many :messages
 - has_many :groups, through :groups_users
+- has_many :users_groups
 
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|nul: false|
+|name|string|nul: false|
 
 ### Association
 - has_many :users, through :groups_users
 - has_many :messages
+- has_many :users_groups
 
 
 ## groups_usersテーブル
@@ -66,5 +68,5 @@ Things you may want to cover:
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :users
-- has_many :groups
+- belongs_to :user
+- belongs_to :group
