@@ -9,16 +9,30 @@
   width: 300px;
   height: 100px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  }
-    .Side-bar__user-name--user-info {
-      background-color: #d8d8d8;
+    &__user-info {
       width: 260px;
       height: 20px;
       margin-right: 20px;
       margin-left: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &--user {
+        color: #ffffff;
+        font-size: 16px;
+      }
+      &--icon {
+        display: flex;
+        justify-content: right;
+        .Side-bar__btn {
+          color: #ffffff;
+          text-decoration: none;
+          margin-left: 5px;
+        }
+      }
     }
+  }
   &__group-list {
     background-color: #2f3e51;
     width: 300px;
@@ -26,11 +40,11 @@
   }
 }
 
+
 .Chat-main {
   &__group-name {
     background-color: #ffffff;
-    border: 1px solid #ffffff ;
-    border-bottom-color: #eeeeee;
+    border: 1px solid #eeeeee ;
     width: calc(100vw - 300px);
     height: 100px;
   }

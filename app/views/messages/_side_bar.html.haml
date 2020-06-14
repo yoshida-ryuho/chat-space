@@ -1,4 +1,11 @@
 .Side-bar
   .Side-bar__user-name
-    .Side-bar__user-name--user-info
+    .Side-bar__user-name__user-info
+      .Side-bar__user-name__user-info--user
+        masa
+      .Side-bar__user-name__user-info--icon
+        = link_to "#", class: "Side-bar__btn" do
+          = icon('far', 'edit', class: "Side-bar__btn--edit")
+        = link_to "#", class: "Side-bar__btn" do
+          = icon('fas', 'cog', class: "Side-bar__btn--cog")
   .Side-bar__group-list
