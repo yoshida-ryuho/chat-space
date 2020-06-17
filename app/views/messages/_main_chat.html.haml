@@ -1,0 +1,35 @@
+.Chat-main
+  .Chat-main__group-info
+    .Chat-main__group-info__group
+      .Chat-main__group-info__group--group-name
+        test
+      .Chat-main__group-info__group--member-name  
+        Menber:masa
+    .Chat-main__group-info__btn
+      = link_to "#", class: "Chat-main__group-info__btn__edit" do
+        Edit
+  .Chat-main__message-list
+    .Chat-main__message-list__member
+      .Chat-main__message-list__member--name
+        masa
+      .Chat-main__message-list__member--daytime
+        2020年06月15日 18時00分
+    .Chat-main__message-list__message-word
+      おはよう!
+    .Chat-main__message-list__member
+      .Chat-main__message-list__member--name
+        masa
+      .Chat-main__message-list__member--daytime
+        2020年06月15日 18時00分
+    .Chat-main__message-list__message-word
+      おはよう!
+  .Chat-main__message-form
+    .Chat-main__message-form__text-form
+      = form_with url: "#" do |form|
+        = form.text_field :content, class: "text-field", placeholder:"type a message"
+        = form.submit "Send", class: "send-btn"
+        %label
+          = form.file_field :image, class:"file_field"
+          .message-form__text-icon
+            = icon('far', 'image', class: "message-form-icon__btn")
+       
