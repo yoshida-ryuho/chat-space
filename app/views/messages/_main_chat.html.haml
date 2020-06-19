@@ -2,30 +2,32 @@
   .Chat-main__group-info
     .Chat-main__group-info__group
       .Chat-main__group-info__group--group-name
-        test
+        = @group.name
       .Chat-main__group-info__group--member-name  
-        Menber:masa
+        Member:
+        - @group.users.each do |user|
+          = user.name
     .Chat-main__group-info__btn
-      = link_to "#", class: "Chat-main__group-info__btn__edit" do
+      = link_to edit_group_path(@group), class: "Chat-main__group-info__btn__edit" do
         Edit
   .Chat-main__message-list
     .Chat-main__message-list__member
-      .Chat-main__message-list__member--name
-        masa
-      .Chat-main__message-list__member--daytime
-        2020年06月15日 18時00分
+      -# .Chat-main__message-list__member--name
+        -# masa
+      -# .Chat-main__message-list__member--daytime
+        -# 2020年06月15日 18時00分
     .Chat-main__message-list__message-word
-      おはよう!
-    .Chat-main__message-list__member
-      .Chat-main__message-list__member--name
-        masa
-      .Chat-main__message-list__member--daytime
-        2020年06月15日 18時00分
-    .Chat-main__message-list__message-word
-      おはよう!
+      = render @messages
+    -# .Chat-main__message-list__member
+    -#   .Chat-main__message-list__member--name
+    -#     -# masa
+    -#   .Chat-main__message-list__member--daytime
+    -#     -# 2020年06月15日 18時00分
+    -# .Chat-main__message-list__message-word
+    -#   -# おはよう!
   .Chat-main__message-form
     .Chat-main__message-form__text-form
-      = form_with url: "#" do |form|
+      = form_with model: [@group, @message], local: true do |form|
         = form.text_field :content, class: "text-field", placeholder:"type a message"
         = form.submit "Send", class: "send-btn"
         %label
