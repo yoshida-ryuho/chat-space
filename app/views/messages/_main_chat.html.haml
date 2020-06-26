@@ -11,16 +11,13 @@
       = link_to edit_group_path(@group), class: "Chat-main__group-info__btn__edit" do
         Edit
   .Chat-main__message-list
-    .Chat-main__message-list__member
-
-    .Chat-main__message-list__message-word
-      = render @messages
+    = render @messages
 
   .Chat-main__message-form
     .Chat-main__message-form__text-form
-      = form_with model: [@group, @message], local: true do |form|
+      = form_with model: [@group, @message], html: {class: "Form"}, local: true do |form|
         = form.text_field :content, class: "text-field", placeholder:"type a message"
         = form.submit "Send", class: "send-btn"
         %label
           = form.file_field :image, class: "file_field"
-          = icon('far', 'image', class: "message-form-icon__btn")
+          = icon('far', 'image', class: "message-form-icon__btn")ha
