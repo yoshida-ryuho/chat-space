@@ -17,10 +17,9 @@
       = render @messages
 
   .Chat-main__message-form
-    .Chat-main__message-form__text-form
-      = form_with model: [@group, @message], local: true do |form|
-        = form.text_field :content, class: "text-field", placeholder:"type a message"
-        = form.submit "Send", class: "send-btn"
-        %label
-          = form.file_field :image, class: "file_field"
-          = icon('far', 'image', class: "message-form-icon__btn")
+    = form_with model: [@group, @message],html: {class: "Chat-main__message-form__text-form"}, local: true do |form|
+      = form.text_field :content, class: "text-field", placeholder:"type a message"
+      = form.submit "Send", class: "send-btn"
+      %label
+        = form.file_field :image, class: "file_field"
+        = icon('far', 'image', class: "message-form-icon__btn")
